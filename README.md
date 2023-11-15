@@ -1,2 +1,2 @@
 # SchoolManagementSystem
-SchoolManagementSystem 
+Programming final assignment, SchoolManagementSystem

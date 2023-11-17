@@ -6,8 +6,12 @@ public class Department {
 
     public static int nextId = 1;
 
+    public Department(String DepartmentName) {      // unfinished
+
+    }
+
     @Override
-    public String toString() {
+    public String toString() {          // unfinished
         return "Department{" +
                 "id=" + id +
                 ", departmentName='" + departmentName + '\'' +

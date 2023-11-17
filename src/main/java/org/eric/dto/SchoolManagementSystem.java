@@ -3,6 +3,7 @@ package org.eric.dto;
 public class SchoolManagementSystem {
 
     public Department findDepartment() {
+        return null;
     }
 
     public void printTeachers() {
@@ -13,7 +14,7 @@ public class SchoolManagementSystem {
         return;
     }
 
-    public addDepartment() {
+    public void addDepartment() {
 
     }
 
@@ -22,7 +23,7 @@ public class SchoolManagementSystem {
     }
 
     public Student findStudents() {
-
+        return null;
     }
 
     public void addCourse() {
@@ -38,7 +39,7 @@ public class SchoolManagementSystem {
     }
 
     public Course findCourse() {
-
+        return null;
     }
 
     public void printDepartments() {
@@ -50,7 +51,7 @@ public class SchoolManagementSystem {
     }
 
     public Teacher findTeacher() {
-
+        return null;
     }
 
 }

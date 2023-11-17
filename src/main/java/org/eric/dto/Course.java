@@ -9,5 +9,7 @@ public class Course {
     private Teacher teacher;
     private String courseName;
 
+    public Course(String courseName, double credit, Department department) {       // unfinished
 
+    }
 }

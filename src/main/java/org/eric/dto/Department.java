@@ -7,14 +7,11 @@ public class Department {
     public static int nextId = 1;
 
     public Department(String DepartmentName) {      // unfinished
-
+        this.id = String.format("%02d", nextId++);
     }
 
     @Override
     public String toString() {          // unfinished
-        return "Department{" +
-                "id=" + id +
-                ", departmentName='" + departmentName + '\'' +
-                '}';
+
     }
 }

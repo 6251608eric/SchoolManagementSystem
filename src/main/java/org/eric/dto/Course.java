@@ -13,7 +13,7 @@ public class Course {
 
     public static int nextID = 1;
 
-    public Course(String courseName, double credit, Department department) {       // unfinished
+    public Course(String courseName, double credit, Department department) {
         this.id = String.format("%02d", nextID);
     }
 

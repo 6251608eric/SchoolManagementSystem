@@ -1,19 +1,28 @@
 package org.eric.dto;
 
 public class Teacher {
-    private String firstName;       // unfinished
-    private String lastName;       // unfinished
+    private String firstName;
+    private String lastName;
     private Department department;
     private String id;
 
     public static int nextId = 1;
 
-    public Teacher(String name, Department department) {        // unfinished
+    public Teacher(String name, String id, Department department) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.id = String.format("%02d", nextId++);
+        this.department = department;
     }
 
     @Override
-    public String toString() {      // unfinished
-
+    public String toString() {
+        return "Teacher{" +
+                "fullName='" + firstName + " " + lastName + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", department=" + department +
+                ", id='" + id + '\'' +
+                '}';
     }
 }

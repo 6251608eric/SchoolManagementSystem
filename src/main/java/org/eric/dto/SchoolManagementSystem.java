@@ -8,7 +8,7 @@ public class SchoolManagementSystem {
     private static final int MAX_COURSES = 30;
     private static final int MAX_REGISTRATIONS_COURSES = 5;
 
-    public Department findDepartment() {
+    public Department findDepartment(String a) {
         return null;
     }
 
@@ -16,11 +16,11 @@ public class SchoolManagementSystem {
         return;
     }
 
-    public void modifyCourseTeacher() {
+    public void modifyCourseTeacher(String a, String b) {
         return;
     }
 
-    public void addDepartment() {
+    public void addDepartment(String a) {
 
     }
 
@@ -28,23 +28,23 @@ public class SchoolManagementSystem {
 
     }
 
-    public Student findStudents() {
+    public Student findStudents(String a) {
         return null;
     }
 
-    public void addCourse() {
+    public void addCourse(String a, double b, String c) {
 
     }
 
-    public void registerCourse() {
+    public void registerCourse(String a, String b) {
 
     }
 
-    public void addTeacher() {
+    public void addTeacher(String a, String b, String c) {
 
     }
 
-    public Course findCourse() {
+    public Course findCourse(String a) {
         return null;
     }
 
@@ -52,11 +52,11 @@ public class SchoolManagementSystem {
 
     }
 
-    public void addStudent() {
+    public void addStudent(String a, String b, String c) {
 
     }
 
-    public Teacher findTeacher() {
+    public Teacher findTeacher(String a) {
         return null;
     }
 

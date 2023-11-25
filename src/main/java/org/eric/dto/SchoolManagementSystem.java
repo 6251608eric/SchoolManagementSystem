@@ -8,7 +8,7 @@ public class SchoolManagementSystem {
     private static final int MAX_COURSES = 30;
     private static final int MAX_REGISTRATIONS_COURSES = 5;
 
-    public Department findDepartment(String a) {
+    public Department findDepartment(String id) {
         return null;
     }
 
@@ -33,6 +33,10 @@ public class SchoolManagementSystem {
     }
 
     public void addCourse(String a, double b, String c) {
+
+    }
+
+    public void printCourses() {
 
     }
 

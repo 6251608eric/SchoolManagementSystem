@@ -6,8 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="SchoolManagementSystem" />
+        <module name="SimpleCalendar" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="SchoolManagementSystem" target="18" />
+    </bytecodeTargetLevel>
   </component>
 </project>

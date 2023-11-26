@@ -1,8 +1,11 @@
 package org.eric.dto;
 
-import java.util.Arrays;
+import lombok.ToString;
 
+@ToString
 public class Course {
+    private static final int MAX_COURSE_REGISTRATIONS_PER_STUDENTS = 5;
+
     private double credit;
     private String id;
     private Student[] students;
@@ -14,19 +17,12 @@ public class Course {
     public static int nextID = 1;
 
     public Course(String courseName, double credit, Department department) {
-        this.id = String.format("%02d", nextID);
-    }
-
-    @Override
-    public String toString() {
-        return "Course{" +
-                "credit=" + credit +
-                ", id='" + id + '\'' +
-                ", students=" + Arrays.toString(students) +
-                ", department=" + department +
-                ", studentNum=" + studentNum +
-                ", teacher=" + teacher +
-                ", courseName='" + courseName + '\'' +
-                '}';
+        this.id = String.format("C%03d", nextID);
+        this.credit = credit;
+        this.department = department;
+        this.students = new Student[MAX_COURSE_REGISTRATIONS_PER_STUDENTS];
+        this.studentNum = studentNum;
+        this.teacher = new Teacher(null, null, null);
+        this.courseName = courseName;
     }
 }

@@ -1,20 +1,16 @@
 package org.eric.dto;
 
+import lombok.ToString;
+
+@ToString
 public class Department {
     private String id;
     private String departmentName;
 
     public static int nextId = 1;
 
-    public Department(String id) {
-        this.id = String.format("%02d", nextId++);
-    }
-
-    @Override
-    public String toString() {
-        return "Department{" +
-                "id='" + id + '\'' +
-                ", departmentName='" + departmentName + '\'' +
-                '}';
+    public Department(String departmentName) {
+        this.id = String.format("D%03d", nextId++);
+        this.departmentName = departmentName;
     }
 }

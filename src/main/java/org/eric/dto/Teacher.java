@@ -11,7 +11,7 @@ public class Teacher {
     public Teacher(String name, String id, Department department) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.id = String.format("%02d", nextId++);
+        this.id = String.format("T%03d", nextId++);
         this.department = department;
     }
 

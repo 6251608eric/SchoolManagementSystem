@@ -1,23 +1,36 @@
 package org.eric.dto;
 
 public class SchoolManagementSystem {
+
+    private String schoolName;
+    private Department[] departments;
+    private Student[] students;
+    private Teacher[] teachers;
+    private Course[] courses;
+
     private static final int MAX_DEPARTMENT = 5;
     private static final int MAX_STUDENTS = 200;
-    private static final int MAX_REGISTRATIONS_STUDENTS = 5;
     private static final int MAX_TEACHERS = 20;
     private static final int MAX_COURSES = 30;
-    private static final int MAX_REGISTRATIONS_COURSES = 5;
+
+    public SchoolManagementSystem(String schoolName) {
+        this.schoolName = schoolName;
+        this.departments = new Department[MAX_DEPARTMENT];
+        this.students = new Student[MAX_STUDENTS];
+        this.teachers = new Teacher[MAX_TEACHERS];
+        this.courses = new Course[MAX_COURSES];
+    }
 
     public Department findDepartment(String id) {
         return null;
     }
 
     public void printTeachers() {
-        return;
+
     }
 
     public void modifyCourseTeacher(String a, String b) {
-        return;
+
     }
 
     public void addDepartment(String a) {
@@ -63,5 +76,4 @@ public class SchoolManagementSystem {
     public Teacher findTeacher(String a) {
         return null;
     }
-
 }

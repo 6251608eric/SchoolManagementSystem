@@ -14,13 +14,13 @@ public class Student {
 
     public static int nextId = 1;
 
-    public Student(String fullName, String id, Department department) {
+    public Student(String fullName, Department department) {
         this.id = String.format("S%03d", nextId++);
         this.department = department;
         this.courseNum = courseNum;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.courses = new Course[MAX_STUDENTS_REGISTERED_IN_A_COURSE];
+        this.courses = new Course[];
     }
 
     @Override

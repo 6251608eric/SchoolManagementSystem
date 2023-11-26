@@ -5,6 +5,7 @@ import lombok.ToString;
 @ToString
 public class Course {
     private static final int MAX_COURSE_REGISTRATIONS_PER_STUDENTS = 5;
+    private static final int MAX_STUDENTS_REGISTERED_IN_A_COURSE = 5;
 
     private double credit;
     private String id;

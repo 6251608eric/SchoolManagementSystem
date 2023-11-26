@@ -21,59 +21,118 @@ public class SchoolManagementSystem {
         this.courses = new Course[MAX_COURSES];
     }
 
-    public Department findDepartment(String id) {
+    /**
+     * Finds the department based on its id
+     * @param DepartmentId id of the Department
+     */
+    public Department findDepartment(String DepartmentId) {
+        return null;
+    }
+    /**
+     * Finds the Course based on its id
+     * @param courseId id of the Course
+     */
+    public Course findCourse(String courseId) {
         return null;
     }
 
+    /**
+     * Finds the Students based on their id
+     * @param studentId student's id
+     */
+    public Student findStudents(String studentId) {
+        return null;
+    }
+
+    /**
+     * finds the teacher based on their id
+     * @param teacherId teacher's id
+     */
+    public Teacher findTeachers(String teacherId) {
+        return null;
+    }
+
+    /**
+     * prints the teachers
+     */
     public void printTeachers() {
 
     }
 
-    public void modifyCourseTeacher(String a, String b) {
-
-    }
-
-    public void addDepartment(String a) {
-
-    }
-
+    /**
+     * prints the students
+     */
     public void printStudents() {
 
     }
 
-    public Student findStudents(String a) {
-        return null;
-    }
-
-    public void addCourse(String a, double b, String c) {
-
-    }
-
+    /**
+     * prints the courses
+     */
     public void printCourses() {
 
     }
 
-    public void registerCourse(String a, String b) {
-
-    }
-
-    public void addTeacher(String a, String b, String c) {
-
-    }
-
-    public Course findCourse(String a) {
-        return null;
-    }
-
+    /**
+     * prints the departments
+     */
     public void printDepartments() {
 
     }
 
-    public void addStudent(String a, String b, String c) {
+    /**
+     * Add a department
+     * @param Department department's name
+     */
+    public void addDepartment(String Department) {
 
     }
 
-    public Teacher findTeacher(String a) {
-        return null;
+    /**
+     * add a course
+     * @param courseName course's name
+     * @param credit course's credit
+     * @param departmentId course's department
+     */
+    public void addCourse(String courseName, double credit, String departmentId) {
+
+    }
+
+    /**
+     * add a teacher
+     * @param firstName teacher's first name
+     * @param lastName teacher's last name
+     * @param departmentId teacher's department
+     */
+    public void addTeacher(String firstName, String lastName, String departmentId) {
+
+    }
+
+    /**
+     * add a student
+     * @param firstName student's name
+     * @param lastName student's last name
+     * @param departmentId student's department
+     */
+    public void addStudent(String firstName, String lastName, String departmentId) {
+
+    }
+
+    /**
+     * Modify the course that the teacher is teaching
+     * @param courseName course's name
+     * @param teacherName teacher's name
+     */
+    public void modifyCourseTeacher(String courseName, String teacherName) {
+
+    }
+
+    /**
+     * Register into a course as a student
+     * @param studentId student's id
+     * @param courseId course's id
+     */
+    public void registerCourse(String studentId, String courseId) {
+
     }
 }

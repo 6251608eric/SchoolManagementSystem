@@ -8,7 +8,7 @@ public class Teacher {
 
     public static int nextId = 1;
 
-    public Teacher(String name, String id, Department department) {
+    public Teacher(String firstName, String lastName, Department department) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.id = String.format("T%03d", nextId++);

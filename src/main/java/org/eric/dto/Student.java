@@ -3,6 +3,8 @@ package org.eric.dto;
 import java.util.Arrays;
 
 public class Student {
+    private static final int MAX_STUDENTS_REGISTERED_IN_A_COURSE = 5;
+
     private int courseNum;
     private String firstName;
     private String lastName;
@@ -18,7 +20,7 @@ public class Student {
         this.courseNum = courseNum;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.courses = new Course[1];
+        this.courses = new Course[MAX_STUDENTS_REGISTERED_IN_A_COURSE];
     }
 
     @Override

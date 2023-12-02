@@ -23,16 +23,27 @@ public class SchoolManagementSystem {
 
     /**
      * Finds the department based on its id
-     * @param DepartmentId id of the Department
+     * @param departmentId id of the Department
      */
-    public Department findDepartment(String DepartmentId) {
+    public Department findDepartment(String departmentId) {
+        for (Department department : departments) {
+            if (department != null && department.equals(departmentId)) {
+                return department;
+            }
+        }
         return null;
     }
+
     /**
      * Finds the Course based on its id
      * @param courseId id of the Course
      */
     public Course findCourse(String courseId) {
+        for (Course course : courses) {
+            if (course != null && course.equals(courseId)) {
+                return course;
+            }
+        }
         return null;
     }
 
@@ -41,6 +52,11 @@ public class SchoolManagementSystem {
      * @param studentId student's id
      */
     public Student findStudents(String studentId) {
+        for (Student student : students) {
+            if (student != null && student.equals(studentId)) {
+                return student;
+            }
+        }
         return null;
     }
 
@@ -49,6 +65,11 @@ public class SchoolManagementSystem {
      * @param teacherId teacher's id
      */
     public Teacher findTeachers(String teacherId) {
+        for (Teacher teacher : teachers) {
+            if (teacher != null && teacher.equals(teacherId)) {
+                return teacher;
+            }
+        }
         return null;
     }
 
@@ -56,28 +77,44 @@ public class SchoolManagementSystem {
      * prints the teachers
      */
     public void printTeachers() {
-
+        for (Teacher teacher : teachers) {
+            if (teacher != null) {
+                System.out.println(teacher);
+            }
+        }
     }
 
     /**
      * prints the students
      */
     public void printStudents() {
-
+        for (Student student : students) {
+            if (student != null) {
+                System.out.println(student);
+            }
+        }
     }
 
     /**
      * prints the courses
      */
     public void printCourses() {
-
+        for (Course course : courses) {
+            if (course != null) {
+                System.out.println(course);
+            }
+        }
     }
 
     /**
      * prints the departments
      */
     public void printDepartments() {
-
+        for (Department department : departments) {
+            if (department != null) {
+                System.out.println(department);
+            }
+        }
     }
 
     /**

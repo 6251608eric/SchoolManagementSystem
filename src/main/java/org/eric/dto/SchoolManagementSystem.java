@@ -140,6 +140,8 @@ public class SchoolManagementSystem {
      * @param departmentId course's department
      */
     public void addCourse(String courseName, double credit, String departmentId) {
+        courseCounter = 0;
+
         if (departments != null && courseCounter < MAX_COURSES) {
             Department department = findDepartment(departmentId);
 
@@ -159,6 +161,8 @@ public class SchoolManagementSystem {
      * @param departmentId teacher's department
      */
     public void addTeacher(String firstName, String lastName, String departmentId) {
+        teacherCounter = 0;
+
         if (departments != null && teacherCounter < MAX_TEACHERS) {
             Department department = findDepartment(departmentId);
 
@@ -178,6 +182,8 @@ public class SchoolManagementSystem {
      * @param departmentId student's department
      */
     public void addStudent(String firstName, String lastName, String departmentId) {
+        studentCounter = 0;
+
         if (departments != null && studentCounter < MAX_STUDENTS) {
             Department department = findDepartment(departmentId);
 

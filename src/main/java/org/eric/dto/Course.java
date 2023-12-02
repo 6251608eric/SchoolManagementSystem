@@ -1,10 +1,12 @@
 package org.eric.dto;
 
+import lombok.Getter;
 import lombok.ToString;
 
 @ToString
+@Getter
 public class Course {
-    private static final int MAX_COURSE_REGISTRATIONS_PER_STUDENTS = 5;
+    public static final int MAX_COURSE_REGISTRATIONS_PER_STUDENTS = 5;
 
     private double credit;
     private String id;
@@ -21,7 +23,7 @@ public class Course {
         this.credit = credit;
         this.department = department;
         this.students = new Student[MAX_COURSE_REGISTRATIONS_PER_STUDENTS];
-        this.studentNum = studentNum;
+        this.studentNum = 0;
         this.teacher = new Teacher(null, null, null);
         this.courseName = courseName;
     }

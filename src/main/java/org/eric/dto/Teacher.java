@@ -1,5 +1,8 @@
 package org.eric.dto;
 
+import lombok.Getter;
+
+@Getter
 public class Teacher {
     private String firstName;
     private String lastName;

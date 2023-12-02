@@ -1,5 +1,7 @@
 package org.eric.dto;
 
+import java.util.Objects;
+
 public class SchoolManagementSystem {
 
     private String schoolName;
@@ -199,10 +201,29 @@ public class SchoolManagementSystem {
     /**
      * Modify the course that the teacher is teaching
      * @param courseName course's name
-     * @param teacherName teacher's name
+     * @param teacherId teacher's id
      */
-    public void modifyCourseTeacher(String courseName, String teacherName) {
-
+    public void modifyCourseTeacher(String courseName, String teacherId) {
+//        Course course = findCourse(courseName);
+//        Teacher teacher = findTeachers(teacherId);
+//
+//        if (course != null && teacher != null) {
+//            int idx = -1;
+//            for (int i = 0; i < courses.length; i++) {
+//                if (courses[i] != null && courses[i].equals(course)) {
+//                    idx = 1;
+//                    break;
+//                }
+//            }
+//
+//            if (idx != -1) {
+//                courses[idx] = new Course(courseName, c, de );
+//                System.out.println("Course's teacher modified successfully. ");
+//            } else {
+//                System.out.println("Please correct the course ID. ");
+//            }
+//            System.out.println("Teacher or course not found with provided id. ");
+//        }
     }
 
     /**
@@ -211,6 +232,25 @@ public class SchoolManagementSystem {
      * @param courseId course's id
      */
     public void registerCourse(String studentId, String courseId) {
-
+//        Student student = findStudents(studentId);
+//        Course course = findCourse(courseId);
+//
+//        if (student != null && course != null) {
+//            Student[] courseStudents = course.getStudents();
+//            boolean isAlreadyRegistered = false;
+//
+//            for (int i = 0; i < course.getStudentNum(); i++) {
+//                if (courseStudents[i] != null && courseStudents[i].equals(student)) {
+//                    isAlreadyRegistered = true;
+//                    break;
+//                }
+//            }
+//
+//            if (student.getCourseNum() < Student.MAX_STUDENTS_REGISTERED_IN_A_COURSE && course.getStudentNum() < Course.MAX_COURSE_REGISTRATIONS_PER_STUDENTS && !isAlreadyRegistered) {
+//                int studentIndex = course.getStudentNum();
+//                courseStudents[studentIndex] = student;
+//                courseStudents/
+//            }
+//        }
     }
 }

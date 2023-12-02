@@ -1,8 +1,10 @@
 package org.eric.dto;
 
+import lombok.Getter;
 import lombok.ToString;
 
 @ToString
+@Getter
 public class Department {
     private String id;
     private String departmentName;

@@ -1,9 +1,12 @@
 package org.eric.dto;
 
+import lombok.Getter;
+
 import java.util.Arrays;
 
+@Getter
 public class Student {
-    private static final int MAX_STUDENTS_REGISTERED_IN_A_COURSE = 5;
+    public static final int MAX_STUDENTS_REGISTERED_IN_A_COURSE = 5;
 
     private int courseNum;
     private String firstName;
@@ -17,7 +20,7 @@ public class Student {
     public Student(String firstName, String lastName, Department department) {
         this.id = String.format("S%03d", nextId++);
         this.department = department;
-        this.courseNum = courseNum;
+        this.courseNum = 0;
         this.firstName = firstName;
         this.lastName = lastName;
         this.courses = new Course[MAX_STUDENTS_REGISTERED_IN_A_COURSE];

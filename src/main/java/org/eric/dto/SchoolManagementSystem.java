@@ -5,8 +5,11 @@ public class SchoolManagementSystem {
     private String schoolName;
     private Department[] departments;
     private Student[] students;
+    private int studentCounter;
     private Teacher[] teachers;
+    private int teacherCounter;
     private Course[] courses;
+    private int courseCounter;
 
     private static final int MAX_DEPARTMENT = 5;
     private static final int MAX_STUDENTS = 200;
@@ -119,10 +122,15 @@ public class SchoolManagementSystem {
 
     /**
      * Add a department
-     * @param Department department's name
+     * @param department department's name
      */
-    public void addDepartment(String Department) {
-
+    public void addDepartment(String department) {
+        for (int i = 0; i < departments.length; i++) {
+            if (departments[i] == null) {
+                departments[i] = new Department(department);
+                break;
+            }
+        }
     }
 
     /**
@@ -132,7 +140,16 @@ public class SchoolManagementSystem {
      * @param departmentId course's department
      */
     public void addCourse(String courseName, double credit, String departmentId) {
+        if (departments != null && courseCounter < MAX_COURSES) {
+            Department department = findDepartment(departmentId);
 
+            for (int i = 0; i < courses.length; i++) {
+                if (courses[i] == null) {
+                    courses[i] = new Course(courseName, credit, department);
+                    break;
+                }
+            }
+        }
     }
 
     /**
@@ -142,7 +159,16 @@ public class SchoolManagementSystem {
      * @param departmentId teacher's department
      */
     public void addTeacher(String firstName, String lastName, String departmentId) {
+        if (departments != null && teacherCounter < MAX_TEACHERS) {
+            Department department = findDepartment(departmentId);
 
+            for (int i = 0; i < teachers.length; i++) {
+                if (teachers[i] == null) {
+                    teachers[i] = new Teacher(firstName, lastName, department);
+                    break;
+                }
+            }
+        }
     }
 
     /**
@@ -152,7 +178,16 @@ public class SchoolManagementSystem {
      * @param departmentId student's department
      */
     public void addStudent(String firstName, String lastName, String departmentId) {
+        if (departments != null && studentCounter < MAX_STUDENTS) {
+            Department department = findDepartment(departmentId);
 
+            for (int i = 0; i < students.length; i++) {
+                if (students[i] == null) {
+                    students[i] = new Student(firstName, lastName, department);
+                    break;
+                }
+            }
+        }
     }
 
     /**

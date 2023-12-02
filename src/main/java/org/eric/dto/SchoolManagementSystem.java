@@ -1,7 +1,5 @@
 package org.eric.dto;
 
-import java.util.Objects;
-
 public class SchoolManagementSystem {
 
     private String schoolName;
@@ -28,11 +26,11 @@ public class SchoolManagementSystem {
 
     /**
      * Finds the department based on its id
-     * @param departmentId id of the Department
+     * @param departmentName name of the department
      */
-    public Department findDepartment(String departmentId) {
+    public Department findDepartment(String departmentName) {
         for (Department department : departments) {
-            if (department != null && department.equals(departmentId)) {
+            if (department != null && department.getDepartmentName().equals(departmentName)) {
                 return department;
             }
         }
@@ -45,7 +43,7 @@ public class SchoolManagementSystem {
      */
     public Course findCourse(String courseId) {
         for (Course course : courses) {
-            if (course != null && course.equals(courseId)) {
+            if (course != null && course.getId().equals(courseId)) {
                 return course;
             }
         }
@@ -58,7 +56,7 @@ public class SchoolManagementSystem {
      */
     public Student findStudents(String studentId) {
         for (Student student : students) {
-            if (student != null && student.equals(studentId)) {
+            if (student != null && student.getId().equals(studentId)) {
                 return student;
             }
         }
@@ -71,7 +69,7 @@ public class SchoolManagementSystem {
      */
     public Teacher findTeachers(String teacherId) {
         for (Teacher teacher : teachers) {
-            if (teacher != null && teacher.equals(teacherId)) {
+            if (teacher != null && teacher.getId().equals(teacherId)) {
                 return teacher;
             }
         }
@@ -124,12 +122,12 @@ public class SchoolManagementSystem {
 
     /**
      * Add a department
-     * @param department department's name
+     * @param departmentName department's name
      */
-    public void addDepartment(String department) {
+    public void addDepartment(String departmentName) {
         for (int i = 0; i < departments.length; i++) {
             if (departments[i] == null) {
-                departments[i] = new Department(department);
+                departments[i] = new Department(departmentName);
                 break;
             }
         }
@@ -147,11 +145,16 @@ public class SchoolManagementSystem {
         if (departments != null && courseCounter < MAX_COURSES) {
             Department department = findDepartment(departmentId);
 
-            for (int i = 0; i < courses.length; i++) {
-                if (courses[i] == null) {
-                    courses[i] = new Course(courseName, credit, department);
-                    break;
+            if (department != null) {
+                for (int i = 0; i < courses.length; i++) {
+                    if (courses[i] == null) {
+                        courses[i] = new Course(courseName, credit, department);
+                        courseCounter++;
+                        break;
+                    }
                 }
+            } else {
+                System.out.println("Department not found or maximum courses reached");
             }
         }
     }
@@ -168,11 +171,15 @@ public class SchoolManagementSystem {
         if (departments != null && teacherCounter < MAX_TEACHERS) {
             Department department = findDepartment(departmentId);
 
-            for (int i = 0; i < teachers.length; i++) {
-                if (teachers[i] == null) {
-                    teachers[i] = new Teacher(firstName, lastName, department);
-                    break;
+            if (department != null) {
+                for (int i = 0; i < teachers.length; i++) {
+                    if (teachers[i] == null) {
+                        teachers[i] = new Teacher(firstName, lastName, department);
+                        break;
+                    }
                 }
+            } else {
+                System.out.println("Department not found. ");
             }
         }
     }
@@ -189,11 +196,15 @@ public class SchoolManagementSystem {
         if (departments != null && studentCounter < MAX_STUDENTS) {
             Department department = findDepartment(departmentId);
 
-            for (int i = 0; i < students.length; i++) {
-                if (students[i] == null) {
-                    students[i] = new Student(firstName, lastName, department);
-                    break;
+            if (department != null) {
+                for (int i = 0; i < students.length; i++) {
+                    if (students[i] == null) {
+                        students[i] = new Student(firstName, lastName, department);
+                        break;
+                    }
                 }
+            } else {
+                System.out.println("Department not found");
             }
         }
     }

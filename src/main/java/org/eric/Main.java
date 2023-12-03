@@ -7,18 +7,18 @@ public class Main {
         SchoolManagementSystem schoolManagementSystem = new SchoolManagementSystem("Vanier");
 
         schoolManagementSystem.addDepartment("Computer Science");
-        schoolManagementSystem.addDepartment("Social Science");
-        schoolManagementSystem.addDepartment("Computer Technology");
-        schoolManagementSystem.addDepartment("Math");
-        schoolManagementSystem.addDepartment("Music");
-
         schoolManagementSystem.addTeacher("Spongebob", "Square-Pants", "Computer Science");
-        schoolManagementSystem.addStudent("Eric", "Toy", "Computer Science");
-        schoolManagementSystem.addCourse("Calculus 1", 3, "Computer Science");
+        schoolManagementSystem.addStudent("Eric", "Toy", "D001");
+        schoolManagementSystem.addCourse("Introduction to Programming", 3, "D001");
 
         schoolManagementSystem.printDepartments();
         schoolManagementSystem.printTeachers();
         schoolManagementSystem.printStudents();
         schoolManagementSystem.printCourses();
+
+        System.out.println(schoolManagementSystem.findStudents("S001"));
+        System.out.println(schoolManagementSystem.findTeachers("T001"));
+        System.out.println(schoolManagementSystem.findCourse("C001"));
+        System.out.println(schoolManagementSystem.findDepartment("D001"));
     }
 }

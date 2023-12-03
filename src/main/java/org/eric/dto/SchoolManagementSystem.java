@@ -26,11 +26,11 @@ public class SchoolManagementSystem {
 
     /**
      * Finds the department based on its id
-     * @param departmentName name of the department
+     * @param departmentId id of the department
      */
-    public Department findDepartment(String departmentName) {
+    public Department findDepartment(String departmentId) {
         for (Department department : departments) {
-            if (department != null && department.getDepartmentName().equals(departmentName)) {
+            if (department != null && department.getId().equals(departmentId)) {
                 return department;
             }
         }
@@ -125,11 +125,18 @@ public class SchoolManagementSystem {
      * @param departmentName department's name
      */
     public void addDepartment(String departmentName) {
-        for (int i = 0; i < departments.length; i++) {
-            if (departments[i] == null) {
-                departments[i] = new Department(departmentName);
-                break;
+        int departmentCounter = 0;
+
+        if (departmentCounter < MAX_DEPARTMENT) {
+            for (int i = 0; i < departments.length; i++) {
+                if (departments[i] == null) {
+                    departments[i] = new Department(departmentName);
+                    departmentCounter++;
+                    break;
+                }
             }
+        } else {
+            System.out.println("Too many departments");
         }
     }
 
@@ -137,25 +144,21 @@ public class SchoolManagementSystem {
      * add a course
      * @param courseName course's name
      * @param credit course's credit
-     * @param departmentId course's department
+     * @param departmentId course's departmentId
      */
     public void addCourse(String courseName, double credit, String departmentId) {
         courseCounter = 0;
 
-        if (departments != null && courseCounter < MAX_COURSES) {
-            Department department = findDepartment(departmentId);
-
-            if (department != null) {
-                for (int i = 0; i < courses.length; i++) {
-                    if (courses[i] == null) {
-                        courses[i] = new Course(courseName, credit, department);
-                        courseCounter++;
-                        break;
-                    }
+        if (courseCounter < MAX_COURSES) {
+            for (int i = 0; i < courses.length; i++) {
+                if (courses[i] == null) {
+                    courses[i] = new Course(courseName, credit, findDepartment(departmentId));
+                    courseCounter++;
+                    break;
                 }
-            } else {
-                System.out.println("Department not found or maximum courses reached");
             }
+        } else {
+            System.out.println("Too many courses");
         }
     }
 
@@ -163,24 +166,20 @@ public class SchoolManagementSystem {
      * add a teacher
      * @param firstName teacher's first name
      * @param lastName teacher's last name
-     * @param departmentId teacher's department
+     * @param departmentId teacher's departmentId
      */
     public void addTeacher(String firstName, String lastName, String departmentId) {
         teacherCounter = 0;
 
-        if (departments != null && teacherCounter < MAX_TEACHERS) {
-            Department department = findDepartment(departmentId);
-
-            if (department != null) {
-                for (int i = 0; i < teachers.length; i++) {
-                    if (teachers[i] == null) {
-                        teachers[i] = new Teacher(firstName, lastName, department);
-                        break;
-                    }
+        if (teacherCounter < MAX_TEACHERS) {
+            for (int i = 0; i < teachers.length; i++) {
+                if (teachers[i] == null) {
+                    teachers[i] = new Teacher(firstName, lastName, findDepartment(departmentId));
+                    break;
                 }
-            } else {
-                System.out.println("Department not found. ");
             }
+        } else {
+            System.out.println("Too many teachers");
         }
     }
 
@@ -188,24 +187,21 @@ public class SchoolManagementSystem {
      * add a student
      * @param firstName student's name
      * @param lastName student's last name
-     * @param departmentId student's department
+     * @param departmentId student's departmentId
      */
     public void addStudent(String firstName, String lastName, String departmentId) {
         studentCounter = 0;
 
-        if (departments != null && studentCounter < MAX_STUDENTS) {
-            Department department = findDepartment(departmentId);
-
-            if (department != null) {
-                for (int i = 0; i < students.length; i++) {
-                    if (students[i] == null) {
-                        students[i] = new Student(firstName, lastName, department);
-                        break;
-                    }
+        if (studentCounter < MAX_STUDENTS) {
+            for (int i = 0; i < students.length; i++) {
+                if (students[i] == null) {
+                    students[i] = new Student(firstName, lastName, findDepartment(departmentId));
+                    studentCounter++;
+                    break;
                 }
-            } else {
-                System.out.println("Department not found");
             }
+        } else {
+            System.out.println("Too many students");
         }
     }
 
@@ -243,25 +239,14 @@ public class SchoolManagementSystem {
      * @param courseId course's id
      */
     public void registerCourse(String studentId, String courseId) {
-//        Student student = findStudents(studentId);
-//        Course course = findCourse(courseId);
-//
-//        if (student != null && course != null) {
-//            Student[] courseStudents = course.getStudents();
-//            boolean isAlreadyRegistered = false;
-//
-//            for (int i = 0; i < course.getStudentNum(); i++) {
-//                if (courseStudents[i] != null && courseStudents[i].equals(student)) {
-//                    isAlreadyRegistered = true;
-//                    break;
-//                }
-//            }
-//
-//            if (student.getCourseNum() < Student.MAX_STUDENTS_REGISTERED_IN_A_COURSE && course.getStudentNum() < Course.MAX_COURSE_REGISTRATIONS_PER_STUDENTS && !isAlreadyRegistered) {
-//                int studentIndex = course.getStudentNum();
-//                courseStudents[studentIndex] = student;
-//                courseStudents/
-//            }
-//        }
+        Student student = findStudents(studentId);
+        Course course = findCourse(courseId);
+
+        for (int i = 0; i < student.getCourses().length; i++) {
+            if (student.getCourses()[i] == null) {
+                student.getCourses()[i] = course;
+                break;
+            }
+        }
     }
 }

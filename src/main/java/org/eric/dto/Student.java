@@ -1,12 +1,14 @@
 package org.eric.dto;
 
 import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Arrays;
 
+@Setter
 @Getter
 public class Student {
-    private int courseNum = 0;
+    private int courseNum;
     private String firstName;
     private String lastName;
     private Course[] courses;
@@ -22,17 +24,24 @@ public class Student {
         this.firstName = firstName;
         this.lastName = lastName;
         this.courses = new Course[MAX_STUDENTS_REGISTERED_IN_A_COURSE];
+        this.courseNum = 0;
     }
 
     @Override
     public String toString() {
-        return "Student{" +
-                "fullName=" + firstName + " " + lastName +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", courses=" + Arrays.toString(courses) +
-                ", id='" + id + '\'' +
-                ", department=" + department +
-                '}';
+        String result = String.format("Student{id='%s', fullName='%s %s', department=%s, courseNum=%d, courses=[}",
+                id, firstName, lastName, department, courseNum);
+
+        for (int i = 0; i < courseNum; i++) {
+            if (courses[i] != null) {
+                result += courses[i].toString();
+                if (i < courseNum - 1) {
+                    result += ", ";
+                }
+            }
+        }
+
+        result += "]}";
+        return result;
     }
 }

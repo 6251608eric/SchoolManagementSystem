@@ -1,9 +1,9 @@
 package org.eric.dto;
 
 import lombok.Getter;
+import lombok.Setter;
 
-import java.util.Arrays;
-
+@Setter
 @Getter
 public class Course {
     private double credit;
@@ -22,20 +22,25 @@ public class Course {
         this.credit = credit;
         this.department = department;
         this.students = new Student[MAX_COURSE_REGISTRATIONS_PER_STUDENTS];
-        this.teacher = new Teacher(null, null, department);
+        this.teacher = null;
         this.courseName = courseName;
     }
 
     @Override
     public String toString() {
-        return "Course{" +
-                "credit=" + credit +
-                ", id='" + id + '\'' +
-                ", students=" + Arrays.toString(students) +
-                ", department=" + department +
-                ", studentNum=" + studentNum +
-                ", teacher=" + teacher +
-                ", courseName='" + courseName + '\'' +
-                '}';
+        String result = String.format("Course{id='%s', courseName='%s', credit=%.2f, department=%s, studentNum=%d, students=[",
+                id, courseName, credit, department, studentNum);
+
+        for (int i = 0; i < studentNum; i++) {
+            if (students[i] != null) {
+                result += students[i].toString();
+                if (i < studentNum - 1) {
+                    result += ", ";
+                }
+            }
+        }
+
+        result += "]}";
+        return result;
     }
 }

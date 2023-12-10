@@ -1,5 +1,10 @@
 package org.eric.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class SchoolManagementSystem {
 
     private String schoolName;
@@ -132,11 +137,12 @@ public class SchoolManagementSystem {
                 if (departments[i] == null) {
                     departments[i] = new Department(departmentName);
                     departmentCounter++;
+                    System.out.println("Added department successfully: " + departments[i]);
                     break;
                 }
             }
         } else {
-            System.out.println("Too many departments");
+            System.out.println("Max department reached, add a new department failed. ");
         }
     }
 
@@ -154,11 +160,12 @@ public class SchoolManagementSystem {
                 if (courses[i] == null) {
                     courses[i] = new Course(courseName, credit, findDepartment(departmentId));
                     courseCounter++;
+                    System.out.println("Added course successfully: " + courses[i]);
                     break;
                 }
             }
         } else {
-            System.out.println("Too many courses");
+            System.out.println("Max teacher reached, add a new teacher failed.");
         }
     }
 
@@ -175,11 +182,13 @@ public class SchoolManagementSystem {
             for (int i = 0; i < teachers.length; i++) {
                 if (teachers[i] == null) {
                     teachers[i] = new Teacher(firstName, lastName, findDepartment(departmentId));
+                    teacherCounter++;
+                    System.out.println("Added teacher successfully: " + teachers[i]);
                     break;
                 }
             }
         } else {
-            System.out.println("Too many teachers");
+            System.out.println("Max teacher reached, add a new teacher failed. ");
         }
     }
 
@@ -197,6 +206,7 @@ public class SchoolManagementSystem {
                 if (students[i] == null) {
                     students[i] = new Student(firstName, lastName, findDepartment(departmentId));
                     studentCounter++;
+                    System.out.println("Added student successfully: " + students[i]);
                     break;
                 }
             }
@@ -207,30 +217,19 @@ public class SchoolManagementSystem {
 
     /**
      * Modify the course that the teacher is teaching
-     * @param courseName course's name
+     * @param courseID course's name
      * @param teacherId teacher's id
      */
-    public void modifyCourseTeacher(String courseName, String teacherId) {
-//        Course course = findCourse(courseName);
-//        Teacher teacher = findTeachers(teacherId);
-//
-//        if (course != null && teacher != null) {
-//            int idx = -1;
-//            for (int i = 0; i < courses.length; i++) {
-//                if (courses[i] != null && courses[i].equals(course)) {
-//                    idx = 1;
-//                    break;
-//                }
-//            }
-//
-//            if (idx != -1) {
-//                courses[idx] = new Course(courseName, c, de );
-//                System.out.println("Course's teacher modified successfully. ");
-//            } else {
-//                System.out.println("Please correct the course ID. ");
-//            }
-//            System.out.println("Teacher or course not found with provided id. ");
-//        }
+    public void modifyCourseTeacher(String courseID, String teacherId) {
+        Course course = findCourse(courseID);
+        Teacher teacher = findTeachers(teacherId);
+
+        if (course != null && teacher != null) {
+            course.setTeacher(teacher);
+            System.out.println("Teacher has been added");
+        } else {
+            System.out.println("Unknown course or teacher");
+        }
     }
 
     /**
@@ -242,11 +241,48 @@ public class SchoolManagementSystem {
         Student student = findStudents(studentId);
         Course course = findCourse(courseId);
 
-        for (int i = 0; i < student.getCourses().length; i++) {
-            if (student.getCourses()[i] == null) {
-                student.getCourses()[i] = course;
-                break;
+        if (findStudents(studentId) != null && findCourse(courseId) != null) {
+            if (student.getCourseNum() >= Student.MAX_STUDENTS_REGISTERED_IN_A_COURSE) {
+                System.out.println("The student has registered max courses");
+
+            } else if (course.getStudentNum() >= Student.MAX_STUDENTS_REGISTERED_IN_A_COURSE) {
+                System.out.println("The course has been registered by max students");
+
+            } else {
+                for (int i = 0; i < course.getStudents().length; i++) {
+                    if (student.getCourses()[i] != null && student.getCourses()[i].equals(course)) {
+                        System.out.println("The course has  been registered by the student already");
+                        return;
+                    }
+
+                    if (course.getStudents()[i] == null) {
+                        course.getStudents()[i] = student;
+                        course.setStudentNum(course.getStudentNum() + 1);
+                        break;
+                    }
+                }
+
+                for (int i = 0; i < student.getCourses().length; i++) {
+                    if (student.getCourses()[i] == null) {
+                        student.getCourses()[i] = course;
+                        student.setCourseNum(student.getCourseNum() + 1);
+                        break;
+                    }
+                }
+
+                for (int i = 0; i < course.getStudents().length; i++) {
+                    if (course.getStudents()[i] == null) {
+                        course.getStudents()[i] = student;
+                        course.setStudentNum(course.getStudentNum() + 1);
+                        break;
+                    }
+                }
+
+                System.out.println("Student registered successfully. ");
+                return;
             }
         }
+
+        System.out.println("Invalid student or course ID");
     }
 }

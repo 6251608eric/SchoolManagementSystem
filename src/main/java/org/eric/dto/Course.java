@@ -3,6 +3,8 @@ package org.eric.dto;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Arrays;
+
 @Setter
 @Getter
 public class Course {
@@ -28,19 +30,22 @@ public class Course {
 
     @Override
     public String toString() {
-        String result = String.format("Course{id='%s', courseName='%s', credit=%.2f, department=%s, studentNum=%d, students=[",
-                id, courseName, credit, department, studentNum);
+        String studentString = "[";
 
-        for (int i = 0; i < studentNum; i++) {
-            if (students[i] != null) {
-                result += students[i].toString();
-                if (i < studentNum - 1) {
-                    result += ", ";
-                }
+        for (Student student : students) {
+            if (student != null) {
+                studentString += student + ", ";
             }
         }
 
-        result += "]}";
-        return result;
+        return "Course{" +
+                "credit=" + credit +
+                ", id='" + id + '\'' +
+                ", students=" + studentString +
+                ", department=" + department +
+                ", studentNum=" + studentNum +
+                ", teacher=" + teacher +
+                ", courseName='" + courseName + '\'' +
+                '}';
     }
 }

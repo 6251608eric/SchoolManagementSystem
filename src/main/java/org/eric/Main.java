@@ -10,16 +10,20 @@ public class Main {
         schoolManagementSystem.addDepartment("Social Science");
         schoolManagementSystem.addDepartment("Computer Technology");
         schoolManagementSystem.addDepartment("Music");
-
         schoolManagementSystem.addStudent("Eric", "Toy", "D001");
+        schoolManagementSystem.addStudent("Mike", "Conan", "D001");
         schoolManagementSystem.addTeacher("Spongebob", "Square-Pants", "D001");
         schoolManagementSystem.addCourse("Introduction to Programming", 3, "D001");
+        System.out.println("\n");
 
         schoolManagementSystem.registerCourse("S001", "C001");
+        schoolManagementSystem.registerCourse("S002", "C001");
         schoolManagementSystem.modifyCourseTeacher("C001", "T001");
-//        schoolManagementSystem.printTeachers();
-//        schoolManagementSystem.printStudents();
-//        schoolManagementSystem.printDepartments();
-//        schoolManagementSystem.printCourses();
+        System.out.println("\n");
+
+        schoolManagementSystem.printTeachers();
+        schoolManagementSystem.printStudents();
+        schoolManagementSystem.printDepartments();
+        schoolManagementSystem.printCourses();
     }
 }

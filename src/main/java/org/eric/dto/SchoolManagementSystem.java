@@ -226,9 +226,16 @@ public class SchoolManagementSystem {
 
         if (course != null && teacher != null) {
             course.setTeacher(teacher);
-            System.out.println("Teacher has been added");
+            System.out.println("Teacher has been updated successfully " + "\n\tTeacher information: " + teacherId + "\n\tCourse assigned: " + courseID);
+
         } else {
-            System.out.println("Unknown course or teacher");
+            if (course == null) {
+                System.out.println("Operation failed, course unknown");
+            }
+
+            if (teacher == null) {
+                System.out.println("Operation failed, teacher unknown");
+            }
         }
     }
 
@@ -278,7 +285,7 @@ public class SchoolManagementSystem {
                     }
                 }
 
-                System.out.println("Student registered successfully. ");
+                System.out.println("Student registered successfully. " + "\n\tStudent information: " + studentId + "\n\tCourse assigned: " + courseId);
                 return;
             }
         }

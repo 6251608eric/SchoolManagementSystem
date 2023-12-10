@@ -29,19 +29,21 @@ public class Student {
 
     @Override
     public String toString() {
-        String result = String.format("Student{id='%s', fullName='%s %s', department=%s, courseNum=%d, courses=[}",
-                id, firstName, lastName, department, courseNum);
+        String courseString = "[";
 
-        for (int i = 0; i < courseNum; i++) {
-            if (courses[i] != null) {
-                result += courses[i].toString();
-                if (i < courseNum - 1) {
-                    result += ", ";
-                }
+        for (Course course : courses) {
+            if (course != null) {
+            courseString += course.getCourseName() + ", ";
             }
         }
 
-        result += "]}";
-        return result;
+        return "Student{" +
+                "courseNum=" + courseNum +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", courses=" + courseString +
+                ", id='" + id + '\'' +
+                ", department=" + department +
+                '}';
     }
 }
